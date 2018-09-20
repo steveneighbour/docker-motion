@@ -1,7 +1,7 @@
 FROM alpine:3.6
 LABEL maintainer "steve"
 
-RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git \
+RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis libcurl pcre2 \
 bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx libjpeg-turbo-utils ffmpeg && \
 
