@@ -20,7 +20,7 @@ bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdr
    ./configure && \
    make && \
    make install && \
-#   cd .. && \
-#   rm -fr motion 
+   cd .. && \
+   rm -fr motion 
 
 CMD [ "motion", "-n" ]
