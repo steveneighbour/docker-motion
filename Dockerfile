@@ -2,7 +2,8 @@ FROM alpine:3.6
 LABEL maintainer "steve"
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git \
-autoconf automake libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev && \
+autoconf automake libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libvorbis libcurl pcre2 \
+bash gnutls-dev libssh2 && \
 
 #musl busybox alpine-base layout alpine-keys libressl2.7-libcrypto libressl2.7-libssl libressl2.7-libtls ssl_client \
 #zlib apk-tools scanelf musl-utils libc-utils m4 libbz2 perl autoconf automake pkgconf ncurses-terminfo-base ncurses-terminfo \
@@ -21,8 +22,5 @@ autoconf automake libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ff
    make install && \
    cd .. && \
    rm -fr motion 
-
-# 20 camera feeds max (by default Motion will use port 8080 and +1 for each camera feed)
-EXPOSE 8888
 
 CMD [ "motion", "-n" ]
