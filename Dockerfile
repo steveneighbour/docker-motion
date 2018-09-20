@@ -2,7 +2,8 @@ FROM alpine:3.6
 LABEL maintainer "steve"
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
-autoconf automake libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis libcurl pcre2 \
+autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
+libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg sdl2 libxau libbsd libxdmcp libxcb libx11 alsa-lib expat libpng \
 bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx libjpeg-turbo-utils ffmpeg && \
 
 #musl busybox alpine-base layout alpine-keys libressl2.7-libcrypto libressl2.7-libssl libressl2.7-libtls ssl_client \
