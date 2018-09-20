@@ -14,7 +14,7 @@ bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdr
 #libacl lz4-libs xz-libs libarchive rhash-libs libuv cmake cmake-bash-completion binutils isl libgomp libatomic mpfr3 mpc1 \
 #gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base libmicrohttpd gnutls-c++ libgmpxx gmp-dev nettle-dev \
 #libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev && \
-   git clone -b mybranch --4.1 https://github.com/Motion-Project/motion.git  && \
+   git clone --single-branch -b 4.1 https://github.com/Motion-Project/motion.git  && \
    cd motion && \
    autoreconf -fiv && \
    ./configure && \
