@@ -25,7 +25,7 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
 libjpeg-turbo-dev libjpeg-turbo apk-tools git librtmp libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
 perl autoconf automake pkgconf libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ncurses-terminfo-base ncurses-terminfo \
-expat libpng libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg && \
+expat libpng libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg 
 
 #RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
@@ -41,13 +41,14 @@ bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdr
 #libacl lz4-libs xz-libs libarchive rhash-libs libuv cmake cmake-bash-completion binutils isl libgomp libatomic mpfr3 mpc1 \
 #gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base libmicrohttpd gnutls-c++ libgmpxx gmp-dev nettle-dev \
 #libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev && \
-   git clone https://github.com/Motion-Project/motion.git  && \
+RUN git clone https://github.com/Motion-Project/motion.git  && \
    cd motion && \
    autoreconf -fiv && \
    ./configure && \
    make && \
    make install && \
    cd .. && \
-   rm -fr motion 
+   rm -fr motion && \
+   apk del build-base tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
 
 CMD [ "motion", "-n" ]
