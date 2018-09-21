@@ -30,7 +30,7 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
 libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg sdl2 libxau libbsd libxdmcp libxcb libx11 alsa-lib expat libpng \
-bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx libjpeg-turbo-utils && \
+bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx libjpeg-turbo-utils
 
 #musl busybox alpine-base layout alpine-keys libressl2.7-libcrypto libressl2.7-libssl libressl2.7-libtls ssl_client \
 #zlib apk-tools scanelf musl-utils libc-utils m4 libbz2 perl autoconf automake pkgconf ncurses-terminfo-base ncurses-terminfo \
