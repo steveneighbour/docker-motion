@@ -23,7 +23,10 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
   apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
   
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
-libjpeg-turbo-dev libjpeg-turbo && \
+libjpeg-turbo-dev libjpeg-turbo autoconf apk-tools git librtmp libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
+automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base \
+expat libpng libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg && \
+
 #RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
 libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg sdl2 libxau libbsd libxdmcp libxcb libx11 alsa-lib expat libpng \
