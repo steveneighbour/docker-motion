@@ -43,6 +43,7 @@ bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdr
 #libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev && \
 RUN git clone --single-branch -b 4.0 https://github.com/Motion-Project/motion.git  && \
    cd motion && \
+   git reset --hard ccbe2f59272b029b49a106224e8bde7114da0814 && \
    autoreconf -fiv && \
    ./configure && \
    make && \
