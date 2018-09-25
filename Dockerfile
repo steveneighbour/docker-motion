@@ -14,8 +14,8 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
   curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
   cd ffmpeg-${FFMPEG_VERSION} && \
   ./configure \
-  #--enable-gpl --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug && \
-  --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
+  --enable-gpl --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug && \
+  #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
   make && \
   make install && \
   make distclean && \
