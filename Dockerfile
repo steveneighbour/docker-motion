@@ -1,11 +1,11 @@
 FROM alpine:3.6
 LABEL maintainer "steve"
 
-ENV FFMPEG_VERSION=3.2.12
+ENV FFMPEG_VERSION=3.4.4
 
 WORKDIR /tmp/ffmpeg
 
-RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
+  RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
   build-base curl nasm tar bzip2 coreutils \
   zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev 
 
@@ -52,7 +52,7 @@ libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev
 RUN git clone https://github.com/Motion-Project/motion.git  && \
 #RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
    cd motion && \
-   git reset --hard eef702b3d74e7fd799f3c314d9c2d70b80a57da3 && \
+#   git reset --hard eef702b3d74e7fd799f3c314d9c2d70b80a57da3 && \
    autoreconf -fiv && \
    ./configure && \
    make && \
