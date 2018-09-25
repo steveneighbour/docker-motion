@@ -44,10 +44,10 @@ gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base
 #gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base libmicrohttpd gnutls-c++ libgmpxx gmp-dev nettle-dev \
 #libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev && \
 #RUN git clone --single-branch -b 4.1 https://github.com/Motion-Project/motion.git  && \
-#RUN git clone https://github.com/Motion-Project/motion.git  && \
-RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
+RUN git clone https://github.com/Motion-Project/motion.git  && \
+#RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
    cd motion && \
- #  git reset --hard ccbe2f59272b029b49a106224e8bde7114da0814 && \
+   git reset --hard eef702b3d74e7fd799f3c314d9c2d70b80a57da3 && \
    autoreconf -fiv && \
    ./configure && \
    make && \
