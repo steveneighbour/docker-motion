@@ -32,7 +32,7 @@ libjpeg-turbo-dev libjpeg-turbo apk-tools git librtmp libjpeg-turbo-dev libjpeg-
 perl autoconf automake pkgconf libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ncurses-terminfo-base ncurses-terminfo \
 expat libpng libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg \
 xvidcore ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev ca-certificates nghttp2-libs libssh2 libcurl pcre2 make libattr musl musl-utils \
-gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base
+gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base ffmpeg
 
 #musl busybox alpine-base layout alpine-keys libressl2.7-libcrypto libressl2.7-libssl libressl2.7-libtls ssl_client \
 #zlib apk-tools scanelf musl-utils libc-utils m4 libbz2 perl autoconf automake pkgconf ncurses-terminfo-base ncurses-terminfo \
