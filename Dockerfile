@@ -7,7 +7,7 @@ LABEL maintainer "steve"
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
   build-base curl nasm tar bzip2 coreutils \
-  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
+  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev 
 
 #  DIR=$(mktemp -d) && cd ${DIR} && \
 
@@ -25,14 +25,14 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
 libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg sdl2 libxau libbsd libxdmcp libxcb libx11 alsa-lib expat libpng \
-bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx tzdata libjpeg-turbo-utils && \
+bash gnutls-dev libssh2 libmagic gnutls-dev libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx tzdata libjpeg-turbo-utils 
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
 libjpeg-turbo-dev libjpeg-turbo apk-tools git librtmp libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
 perl autoconf automake pkgconf libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base ncurses-terminfo-base ncurses-terminfo \
 expat libpng libacl lz4-libs xz-libs libarchive ncurses-libs readline bash libltdl libtool libjpeg-turbo libjpeg \
 xvidcore ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev ca-certificates nghttp2-libs libssh2 libcurl pcre2 make libattr musl musl-utils \
-gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base ffmpeg libvdpau freetype fontconfig fribidi libass tzdata && \
+gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base ffmpeg libvdpau freetype fontconfig fribidi libass tzdata 
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
 musl busybox alpine-base layout alpine-keys libressl2.7-libcrypto libressl2.7-libssl libressl2.7-libtls ssl_client \
@@ -43,7 +43,7 @@ libxext libxfixes libpciaccess libdrm libva libvdpau libvorbis libvpx x264-libs 
 xvidcore ffmpeg-libs ffmpeg-dev libjpeg-turbo-dev ca-certificates nghttp2-libs libssh2 libcurl pcre2 make libattr \
 libacl lz4-libs xz-libs libarchive rhash-libs libuv cmake cmake-bash-completion binutils isl libgomp libatomic mpfr3 mpc1 \
 gcc libmagic file musl-dev libc-dev g++ fortify-headers build-base libmicrohttpd gnutls-c++ libgmpxx gmp-dev nettle-dev \
-libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev && \
+libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev 
 
 #RUN git clone --single-branch -b 4.1 https://github.com/Motion-Project/motion.git  && \
 RUN git clone https://github.com/Motion-Project/motion.git  && \
