@@ -6,19 +6,20 @@ ENV FFMPEG_VERSION=3.4.4
 WORKDIR /tmp/ffmpeg
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
-  build-base curl nasm tar bzip2 coreutils imagemagick ffmpeg ffmpeg-dev ffmpeg-libs\
-  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev
+  build-base curl nasm tar bzip2 coreutils imagemagick \
+#  ffmpeg ffmpeg-dev ffmpeg-libs \
+  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
 
-#  DIR=$(mktemp -d) && cd ${DIR} && \
-#
-#  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
-#  cd ffmpeg-${FFMPEG_VERSION} && \
-#  ./configure \
-#  --enable-gpl --enable-version3 --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug && \
-#  #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
-#  make && \
-#  make install && \
-#  make distclean && \
+  DIR=$(mktemp -d) && cd ${DIR} && \
+
+  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
+  cd ffmpeg-${FFMPEG_VERSION} && \
+  ./configure \
+  --enable-gpl --enable-version3 --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-postproc --enable-avresample --enable-libfreetype --disable-debug --enable-libopenjpeg --enable-librtmp && \
+  #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
+  make && \
+  make install && \
+  make distclean && \
 
 #  rm -rf ${DIR} && \
 RUN  apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
@@ -53,13 +54,12 @@ libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev
 RUN git clone https://github.com/Motion-Project/motion.git  && \
 #RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
    cd motion && \
-#   git reset --hard eef702b3d74e7fd799f3c314d9c2d70b80a57da3 && \
    autoreconf -fiv && \
    ./configure && \
    make && \
    make install && \
    cd .. && \
    rm -fr motion && \
-   apk del build-base tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
+   apk del build-base tar openssl nasm && rm -rf /var/cache/apk/*
 
 CMD [ "motion", "-n" ]
