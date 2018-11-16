@@ -6,22 +6,22 @@ ENV FFMPEG_VERSION=3.4.4
 WORKDIR /tmp/ffmpeg
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
-  build-base curl nasm tar bzip2 coreutils imagemagick \
-  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
+  build-base curl nasm tar bzip2 coreutils imagemagick ffmpeg ffmpeg-dev ffmpeg-libs\
+  zlib-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev
 
-  DIR=$(mktemp -d) && cd ${DIR} && \
+#  DIR=$(mktemp -d) && cd ${DIR} && \
+#
+#  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
+#  cd ffmpeg-${FFMPEG_VERSION} && \
+#  ./configure \
+#  --enable-gpl --enable-version3 --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug && \
+#  #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
+#  make && \
+#  make install && \
+#  make distclean && \
 
-  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
-  cd ffmpeg-${FFMPEG_VERSION} && \
-  ./configure \
-  --enable-gpl --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug && \
-  #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
-  make && \
-  make install && \
-  make distclean && \
-
-  rm -rf ${DIR} && \
-  apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
+#  rm -rf ${DIR} && \
+RUN  apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
   
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
