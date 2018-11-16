@@ -22,7 +22,7 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
   make distclean && \
 
 #  rm -rf ${DIR} && \
-RUN  apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
+RUN  apk del build-base curl tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
   
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
