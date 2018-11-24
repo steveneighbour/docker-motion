@@ -23,7 +23,7 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
   make distclean && \
 
 #  rm -rf ${DIR} && \
-apk del build-base curl tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
+apk del build-base tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
   
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted apk-tools git librtmp \
 autoconf automake libmicrohttpd libmicrohttpd-dev x264-libs x265 gcc build-base libjpeg-turbo-dev libjpeg-turbo libjpeg libvorbis curl libcurl pcre2 \
@@ -61,6 +61,6 @@ RUN git clone https://github.com/Motion-Project/motion.git  && \
    make install && \
    cd .. && \
    rm -fr motion && \
-   apk del build-base tar openssl nasm && rm -rf /var/cache/apk/*
+   apk del build-base openssl nasm && rm -rf /var/cache/apk/*
 
 CMD [ "motion", "-n" ]
