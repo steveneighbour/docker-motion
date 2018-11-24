@@ -55,6 +55,8 @@ libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev
 RUN git clone https://github.com/Motion-Project/motion.git  && \
 #RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
    cd motion  && \
+   cd .. && \
+   cd motion  && \
    autoreconf -fiv && \
    ./configure && \
    make && \
