@@ -16,12 +16,26 @@ RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alp
   curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
   cd ffmpeg-${FFMPEG_VERSION} && \
   ./configure \
-  --enable-gpl --enable-version3 --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-postproc --enable-avresample --enable-libfreetype --disable-debug --enable-librtmp  && \
+  $--enable-gpl --enable-version3 --enable-nonfree --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-postproc --enable-avresample --enable-libfreetype --disable-debug --enable-librtmp  && \
   #--enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libaacplus --enable-libfaac --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-openssl --enable-libopus --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvo-aacenc --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libxvid --enable-librtmp
-  make && \
+ ./configure \
+  --pkg-config-flags="--static" \
+  --enable-gpl \
+  --enable-libaom \
+  --enable-libass \
+  --enable-libfdk-aac \
+  --enable-libfreetype \
+  --enable-libmp3lame \
+  --enable-libopus \
+  --enable-libvorbis \
+  --enable-libvpx \
+  --enable-libx264 \
+  --enable-libx265 \
+  --enable-nonfree && \
+  make -j4 && \
   make install && \
   make distclean && \
-
+  
 #  rm -rf ${DIR} && \
 apk del build-base tar bzip2 openssl nasm && rm -rf /var/cache/apk/*
   
