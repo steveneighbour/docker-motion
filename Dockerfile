@@ -19,7 +19,6 @@ RUN DIR=$(mktemp -d) && cd ${DIR} && \
  ./configure \
   --pkg-config-flags="--static" \
   --enable-gpl \
-  --enable-libfreetype \
   --enable-libmp3lame \
   --enable-libopus \
   --enable-libx264 \
