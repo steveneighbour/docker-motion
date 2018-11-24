@@ -7,7 +7,7 @@ ENV FFMPEG_VERSION=4.1
 WORKDIR /tmp/ffmpeg
 
 RUN apk add --update --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
-  build-base curl nasm tar bzip2 coreutils imagemagick libaom libass \
+  build-base curl nasm tar bzip2 coreutils imagemagick aom ass \
 #  ffmpeg ffmpeg-dev ffmpeg-libs \
   zlib-dev yasm-dev lame-dev x264 x264-dev x265 x265-dev freetype-dev libass-dev rtmpdump-dev 
 
