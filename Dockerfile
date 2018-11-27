@@ -1,8 +1,8 @@
 FROM alpine:3.6
 LABEL maintainer "steve"
 
-#ENV FFMPEG_VERSION=3.4.4
-ENV FFMPEG_VERSION=4.1
+ENV FFMPEG_VERSION=3.4.4
+#ENV FFMPEG_VERSION=4.1
 
 WORKDIR /tmp/ffmpeg
 
@@ -59,8 +59,6 @@ libtasn1-dev p11-kit-dev gnutls-dev libmicrohttpd-dev
 #RUN git clone --single-branch -b 4.1 https://github.com/Motion-Project/motion.git  && \
 RUN git clone https://github.com/Motion-Project/motion.git  && \
 #RUN git clone --branch release-4.1 https://github.com/Motion-Project/motion.git && \
-   cd motion  && \
-   cd .. && \
    cd motion  && \
    autoreconf -fiv && \
    ./configure && \
